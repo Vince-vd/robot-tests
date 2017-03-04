@@ -1,0 +1,11 @@
+//------------------------------------------------
+// pMotorCommand config block
+
+ProcessConfig = pMotorCommand
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   I2C_ADDRESS = 0x40
+   MOTOR_NUM = 3
+}

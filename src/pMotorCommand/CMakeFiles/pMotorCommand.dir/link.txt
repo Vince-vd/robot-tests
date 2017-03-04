@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11   CMakeFiles/pMotorCommand.dir/MotorCommand.o CMakeFiles/pMotorCommand.dir/MotorCommand_Info.o CMakeFiles/pMotorCommand.dir/i2c_pwm.o CMakeFiles/pMotorCommand.dir/adafruit_motorhat.o CMakeFiles/pMotorCommand.dir/main.o  -o pMotorCommand  -L/usr/local/lib -rdynamic -lmbutil -lm -lpthread -lwiringPi -lrt -Wl,-rpath,/usr/local/lib 

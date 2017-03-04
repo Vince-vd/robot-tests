@@ -1,0 +1,3 @@
+/home/vincent/MEGAsync/moos-projects/motor-test/src/pMotorCommand/CMakeFiles/edit_cache.dir
+/home/vincent/MEGAsync/moos-projects/motor-test/src/pMotorCommand/CMakeFiles/rebuild_cache.dir
+/home/vincent/MEGAsync/moos-projects/motor-test/src/pMotorCommand/CMakeFiles/pMotorCommand.dir
