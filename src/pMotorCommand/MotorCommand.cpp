@@ -125,10 +125,12 @@ bool MotorCommand::OnStartUp()
             if(param == "MOTOR_NUM")
             {
                 m_num = atoi(value.c_str());
+                std::cout << "motor number = " << m_num << '\n';
             }
             else if(param == "I2C_ADDRESS")
             {
                 m_I2C = atoi(value.c_str());
+                std::cout << "I2C = " << m_I2C << '\n';
                 //handled
             }
         }
