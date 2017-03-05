@@ -94,7 +94,9 @@ bool MotorCommand::OnConnectToServer()
 bool MotorCommand::Iterate()
 {
   m_iterations++;
+  std::cout << "setting speed to " << m_speed << '\n';
   m_motor.setSpeed(m_speed);
+  std::cout << "setting command to " << m_command << '\n';
   m_motor.runDC(m_command);
   return(true);
 }
@@ -153,6 +155,7 @@ bool MotorCommand::OnStartUp()
 void MotorCommand::CreateMotorHat(int address)
 {
     // create a motorhat object with given I2C address
+    std::cout << "creating hat, using I2C address " << address << '\n';
     m_mH = adafruit_motorhat(address);
 }
 
@@ -162,5 +165,6 @@ void MotorCommand::CreateMotorHat(int address)
 void MotorCommand::CreateMotorObj(int motorNum)
 {
     //create motor object for given motor number (1-4)
+    std::cout << "creating motor object for motor num " << motorNum << '\n';
     m_motor = m_mH.getMotor(motorNum);
 }
