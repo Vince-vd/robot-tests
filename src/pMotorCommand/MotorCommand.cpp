@@ -1,7 +1,7 @@
 /************************************************************/
-/*    NAME: Vincent Vandyck                                              */
+/*    NAME: Vincent Vandyck                                 */
 /*    ORGN: MIT                                             */
-/*    FILE: MotorCommand.cpp                                        */
+/*    FILE: MotorCommand.cpp                                */
 /*    DATE:                                                 */
 /************************************************************/
 
@@ -48,11 +48,13 @@ bool MotorCommand::OnNewMail(MOOSMSG_LIST &NewMail)
         {
             m_speed = msg.GetDouble();
             std::cout << "read speed variable: " << m_speed << '\n';
+	    m_motor.setSpeed(m_speed);
         }
         if (key == "RDR_COMMAND")
         {
             m_command = msg.GetDouble();
             std::cout << "read command variables" << m_command << '\n';
+	    m_motor.runDC(m_command);
         }
     }
 
@@ -98,9 +100,9 @@ bool MotorCommand::Iterate()
 {
   m_iterations++;
   std::cout << "setting speed to " << m_speed << '\n';
-  m_motor.setSpeed(m_speed);
+  //m_motor.setSpeed(m_speed);
   std::cout << "setting command to " << m_command << '\n';
-  m_motor.runDC(m_command);
+  //m_motor.runDC(m_command);
   return(true);
 }
 
@@ -137,8 +139,8 @@ bool MotorCommand::OnStartUp()
     m_motor = m_mH.getMotor(1);
     m_timewarp = GetMOOSTimeWarp();
 
-    //myMotor.setSpeed(150);
-    //myMotor.runDC(FORWARD);
+    m_motor.setSpeed(150);
+    m_motor.runDC(FORWARD);
     RegisterVariables();
     return(true);
 }
