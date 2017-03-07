@@ -11,8 +11,8 @@
 
 using namespace std;
 
-adafruit_motorhat mH;
-adafruit_dc_motor myMotor;
+adafruit_motorhat m_mH;
+adafruit_dc_motor m_motor;
 
 //---------------------------------------------------------
 // Constructor
@@ -133,12 +133,12 @@ bool MotorCommand::OnStartUp()
         // CreateMotorHat(m_I2C);
         // CreateMotorObj(m_num);
     }
-    mH = adafruit_motorhat(0x60);
-    myMotor = mH.getMotor(1);
+    m_mH = adafruit_motorhat(0x60);
+    m_motor = mH.getMotor(1);
     m_timewarp = GetMOOSTimeWarp();
 
-    myMotor.setSpeed(150);
-    myMotor.runDC(FORWARD);
+    //myMotor.setSpeed(150);
+    //myMotor.runDC(FORWARD);
     RegisterVariables();
     return(true);
 }
