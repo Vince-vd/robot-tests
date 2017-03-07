@@ -11,8 +11,6 @@
 
 using namespace std;
 
-adafruit_motorhat m_mH;
-adafruit_dc_motor m_motor;
 
 //---------------------------------------------------------
 // Constructor
@@ -45,7 +43,7 @@ bool MotorCommand::OnNewMail(MOOSMSG_LIST &NewMail)
     if (msg.IsDouble())
     {
         if (key == "RDR_SPEED")
-        {   
+        {
             m_speed = (int)msg.GetDouble();
             std::cout << "read speed variable: " << m_speed << '\n';
         }
@@ -96,8 +94,8 @@ bool MotorCommand::OnConnectToServer()
 
 bool MotorCommand::Iterate()
 {
-    m_mH = adafruit_motorhat(0x60);
-    m_motor = m_mH.getMotor(1);
+    // m_mH = adafruit_motorhat(0x60);
+    // m_motor = m_mH.getMotor(1);
     m_iterations++;
     std::cout << "setting speed to " << m_speed << '\n';
     m_motor.setSpeed(m_speed);
