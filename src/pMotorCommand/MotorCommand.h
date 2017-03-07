@@ -33,10 +33,10 @@ class MotorCommand : public CMOOSApp
 
    double m_speed;
    double m_command;
-   // int m_I2C;
-   // int m_num;
-   // adafruit_motorhat m_mH;
-   // adafruit_dc_motor m_motor;
+   int m_I2C;
+   int m_num;
+   adafruit_motorhat m_mH;
+   adafruit_dc_motor m_motor;
 
  private: // Configuration variables
 
