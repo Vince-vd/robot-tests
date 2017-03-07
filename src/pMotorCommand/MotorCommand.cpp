@@ -134,7 +134,7 @@ bool MotorCommand::OnStartUp()
         // CreateMotorObj(m_num);
     }
     m_mH = adafruit_motorhat(0x60);
-    m_motor = mH.getMotor(1);
+    m_motor = m_mH.getMotor(1);
     m_timewarp = GetMOOSTimeWarp();
 
     //myMotor.setSpeed(150);
