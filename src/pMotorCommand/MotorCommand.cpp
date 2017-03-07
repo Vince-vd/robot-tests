@@ -11,6 +11,9 @@
 
 using namespace std;
 
+adafruit_motorhat mH;
+adafruit_dc_motor myMotor;
+
 //---------------------------------------------------------
 // Constructor
 
@@ -126,24 +129,16 @@ bool MotorCommand::OnStartUp()
             string param = stripBlankEnds(toupper(biteString(*p, '=')));
             string value = stripBlankEnds(*p);
 
-            if(param == "MOTOR_NUM")
-            {
-                m_num = atoi(value.c_str());
-                std::cout << "motor number = " << m_num << '\n';
-            }
-            else if(param == "I2C_ADDRESS")
-            {
-                m_I2C = atoi(value.c_str());
-                std::cout << "I2C = " << m_I2C << '\n';
-                //handled
-            }
         }
-        CreateMotorHat(m_I2C);
-        CreateMotorObj(m_num);
+        // CreateMotorHat(m_I2C);
+        // CreateMotorObj(m_num);
     }
-
+    mH = adafruit_motorhat(0x60);
+    myMotor = mH.getMotor(1);
     m_timewarp = GetMOOSTimeWarp();
 
+    myMotor.setSpeed(150);
+    myMotor.runDC(FORWARD);
     RegisterVariables();
     return(true);
 }
