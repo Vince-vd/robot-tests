@@ -85,6 +85,8 @@ bool MotorCommand::OnConnectToServer()
    // m_Comms.Register("VARNAME", 0);
 
    RegisterVariables();
+   m_mH = adafruit_motorhat(0x60);
+   m_motor = m_mH.getMotor(1);
    return(true);
 }
 
@@ -133,12 +135,8 @@ bool MotorCommand::OnStartUp()
         // CreateMotorHat(m_I2C);
         // CreateMotorObj(m_num);
     }
-    m_mH = adafruit_motorhat(0x60);
-    m_motor = m_mH.getMotor(1);
-    m_timewarp = GetMOOSTimeWarp();
 
-    m_motor.setSpeed(150);
-    m_motor.runDC(FORWARD);
+    m_timewarp = GetMOOSTimeWarp();
     RegisterVariables();
     return(true);
 }
