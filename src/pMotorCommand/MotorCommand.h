@@ -21,6 +21,8 @@ class MotorCommand : public CMOOSApp
    MotorCommand();
    ~MotorCommand();
    void RegisterVariables();
+   //adafruit_motorhat m_mH;
+   //adafruit_dc_motor m_motor;
 
  protected:
    bool OnNewMail(MOOSMSG_LIST &NewMail);
@@ -35,8 +37,6 @@ class MotorCommand : public CMOOSApp
    int m_command;
    int m_I2C;
    int m_num;
-   //adafruit_motorhat m_mH;
-   //adafruit_dc_motor m_motor;
 
  private: // Configuration variables
 
