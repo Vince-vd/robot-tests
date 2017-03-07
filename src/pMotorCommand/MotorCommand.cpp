@@ -46,15 +46,19 @@ bool MotorCommand::OnNewMail(MOOSMSG_LIST &NewMail)
     {
         if (key == "RDR_SPEED")
         {
+            m_mH = adafruit_motorhat(0x60);
+            m_motor = m_mH.getMotor(1);
             m_speed = (int)msg.GetDouble();
             std::cout << "read speed variable: " << m_speed << '\n';
-	    m_motor.setSpeed(200);
+	        m_motor.setSpeed(200);
         }
         if (key == "RDR_COMMAND")
         {
+            m_mH = adafruit_motorhat(0x60);
+            m_motor = m_mH.getMotor(1);
             m_command = (int)msg.GetDouble();
             std::cout << "read command variables" << m_command << '\n';
-	    m_motor.runDC(RELEASE);
+	        m_motor.runDC(RELEASE);
         }
     }
 
