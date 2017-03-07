@@ -46,13 +46,13 @@ bool MotorCommand::OnNewMail(MOOSMSG_LIST &NewMail)
     {
         if (key == "RDR_SPEED")
         {
-            m_speed = msg.GetDouble();
+            m_speed = (int)msg.GetDouble();
             std::cout << "read speed variable: " << m_speed << '\n';
 	    m_motor.setSpeed(m_speed);
         }
         if (key == "RDR_COMMAND")
         {
-            m_command = msg.GetDouble();
+            m_command = (int)msg.GetDouble();
             std::cout << "read command variables" << m_command << '\n';
 	    m_motor.runDC(m_command);
         }

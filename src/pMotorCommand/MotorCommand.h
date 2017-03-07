@@ -31,8 +31,8 @@ class MotorCommand : public CMOOSApp
    void CreateMotorHat(int);
    void CreateMotorObj(int);
 
-   double m_speed;
-   double m_command;
+   int m_speed;
+   int m_command;
    int m_I2C;
    int m_num;
    //adafruit_motorhat m_mH;
