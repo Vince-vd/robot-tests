@@ -120,9 +120,16 @@ adafruit_dc_motor::adafruit_dc_motor(adafruit_motorhat * controller, int num) {
   *
   */
 
-  int getHatI2C()
+  int adafruit_dc_motor::getHatI2C()
   {
-      return MC->getI2C();
+        if(MC != null)
+        {
+            return MC->getI2C();
+        }
+        else
+        {
+            return -99;
+        }
   }
 
 
