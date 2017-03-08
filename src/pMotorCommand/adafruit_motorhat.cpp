@@ -125,6 +125,7 @@ adafruit_dc_motor::adafruit_dc_motor(adafruit_motorhat * controller, int num) {
 
 adafruit_motorhat::adafruit_motorhat(int addr, int freq)
 {
+    std::cout << "this is a message from the motorhat" << '\n';
   mI2CAddr = addr;                                        // default address on HAT
   mFrequency = freq;                                      // default @1600Hz PWM freq
   mPwm = i2c_pwm(mI2CAddr);                               // create instance of i2c_pwm to control motor
