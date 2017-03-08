@@ -33,6 +33,7 @@ public:
   adafruit_dc_motor(adafruit_motorhat * controller, int num);
   void runDC(int command);
   void setSpeed(int speed);
+  int getHatI2C();
 
 private:
   int mMotorNum;
@@ -57,6 +58,7 @@ public:
   void setPin(int pin, int value);
   adafruit_dc_motor getMotor(int num);
   i2c_pwm mPwm;
+  int getI2C();
 private:
   int mI2CAddr;
   int mFrequency;

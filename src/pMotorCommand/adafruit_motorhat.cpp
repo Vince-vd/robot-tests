@@ -94,6 +94,7 @@ adafruit_dc_motor::adafruit_dc_motor(adafruit_motorhat * controller, int num) {
     }
     else
     {
+        std::cout << "not motor controller" << '\n';
       return;
     }
   }
@@ -112,6 +113,18 @@ adafruit_dc_motor::adafruit_dc_motor(adafruit_motorhat * controller, int num) {
     MC->mPwm.setPWM(mPwmPin, 0, speed*16);
 
   }
+
+  //------------------getHatI2C------------------
+  /** @~english
+  * @brief Return I2C address of motorhat object associated with current motor
+  *
+  */
+
+  int getHatI2C()
+  {
+      return MC->getI2C();
+  }
+
 
 
 //*******************************************************************
@@ -163,6 +176,11 @@ void adafruit_motorhat::setPin(int pin, int value)
   }
 }
 
+//------------------getMotor------------------
+/** @~english
+* @brief return motor object
+*
+*/
 adafruit_dc_motor adafruit_motorhat::getMotor(int num)
 {
   if (num <1 || num > 4)
@@ -170,4 +188,15 @@ adafruit_dc_motor adafruit_motorhat::getMotor(int num)
     std::cout << "MotorHAT motor must be between 1 and 4 inclusive!" << '\n';
   }
   return mMotors[num-1];
+}
+
+//------------------getI2C------------------
+/** @~english
+* @brief Return I2C address of current motorhat object. Useful when debugging
+*
+*/
+
+int adafruit_motorhat::getI2C()
+{
+    return mI2CAddr;
 }
