@@ -108,9 +108,9 @@ adafruit_dc_motor::adafruit_dc_motor(adafruit_motorhat * controller, int num) {
   void adafruit_dc_motor::setSpeed(int speed)
   {
       std::cout << "set speed called from motorhat with speed = " << speed << '\n';
-    if (speed < 0) {speed = 0;}
-    if (speed > 255) {speed = 255;}
-    MC->mPwm.setPWM(mPwmPin, 0, speed*16);
+      if (speed < 0) {speed = 0;}
+      if (speed > 255) {speed = 255;}
+      MC->mPwm.setPWM(mPwmPin, 0, speed*16);
 
   }
 
@@ -122,7 +122,7 @@ adafruit_dc_motor::adafruit_dc_motor(adafruit_motorhat * controller, int num) {
 
   int adafruit_dc_motor::getHatI2C()
   {
-        if(MC != null)
+        if(MC != NULL)
         {
             return MC->getI2C();
         }
