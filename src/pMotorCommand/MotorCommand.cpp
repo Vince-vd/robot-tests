@@ -97,9 +97,11 @@ bool MotorCommand::Iterate()
     // m_mH = adafruit_motorhat(0x60);
     // m_motor = m_mH.getMotor(1);
     m_iterations++;
+    m_motor = m_mH.getMotor(1);
     //std::cout << "setting speed to " << m_speed << '\n';
     m_motor.setSpeed(m_speed);
     std::cout << "Setting speed, motor object I2C = " << m_motor.getHatI2C() << '\n';
+    std::cout << "Setting speed, motohat I2C = " << m_mH.getI2C() << '\n';
     //std::cout << "setting command to " << m_command << '\n';
     m_motor.runDC(m_command);
     return(true);
@@ -136,6 +138,7 @@ bool MotorCommand::OnStartUp()
     }
     m_mH = adafruit_motorhat(0x60);
     m_motor = m_mH.getMotor(1);
+    std::cout << "Creating Motor object, I2C = " << m_motor.getHatI2C() << '\n';
     m_timewarp = GetMOOSTimeWarp();
     RegisterVariables();
     return(true);
